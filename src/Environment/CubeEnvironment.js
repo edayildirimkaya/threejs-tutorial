@@ -20,6 +20,7 @@ import AstronautGLB from '../Assets/Models/Astronaut.glb'
 import Chair from '../Assets/Models/Chair.glb'
 import Car from '../Assets/Models/car.glb'
 import { OverlayItem } from '../Utility/Models/OverlayItem';
+import myModel from '../Assets/Models/eda_car.glb'
 import Parrot from '../Assets/Models/Parrot.glb'
 const CubeEnvironmentWrapper = styled.div`height: 100vh;`;
 
@@ -70,9 +71,9 @@ class CubeEnvironment extends Component {
 		};
 		
 		this.overlayItem = new OverlayItem(
-			"Soy Cuba", 
+			"Adele- Easy On Me", 
 			"VIDEO", 
-			"https://www.youtube.com/embed/BwEabZrGFfI"
+			"https://www.youtube.com/embed/ffcitRgiNDs"
 		)
       }
 
@@ -109,15 +110,15 @@ class CubeEnvironment extends Component {
 		this.setDimensions();
 		this.setupCamera();
 		// ADD CONTROLS
-		// this.setupControls();
+		this.setupControls();
 		this.setupRenderer();
 		
 		// ADD MODELS
 		// this.setupLoadingManager();
 
 		// MAKE INTERACTIVE
-		// this.setupRayCaster()
-		// this.setupMouse()
+		 this.setupRayCaster()
+		 this.setupMouse()
 
 		// ADD POST PROCESSING
 		// this.setupPostProcessing();
@@ -134,7 +135,7 @@ class CubeEnvironment extends Component {
 		this.addHelpers();
 		this.addLights();
 		// this.addCube( new THREE.Vector3(0,0,0),this.overlayItem);
-		this.addModel(Parrot, new THREE.Vector3(0,0,0), this.overlayItem);
+		this.addModel(myModel, new THREE.Vector3(0,0,0), this.overlayItem);
 		// this.setupFog();
 	};
 
@@ -462,7 +463,7 @@ class CubeEnvironment extends Component {
      */
 	addEventListeners = () => {
 		// MAKE INTERACTIVE
-		// document.addEventListener("dblclick", this.onDocumentDoubleClick, false);
+		document.addEventListener("dblclick", this.onDocumentDoubleClick, false);
 		window.addEventListener('resize', this.handleWindowResize, false);
 	};
 
@@ -473,7 +474,7 @@ class CubeEnvironment extends Component {
 	 */
 	removeEventListeners = () => {
 		// MAKE INTERACTIVE
-		// document.removeEventListener("dblclick", this.onDocumentDoubleClick);
+		document.removeEventListener("dblclick", this.onDocumentDoubleClick);
 		window.removeEventListener('resize', this.handleWindowResize);
 	};
 
@@ -515,12 +516,12 @@ class CubeEnvironment extends Component {
 				console.log("YOUR MODEL WAS SELECTED");
 
 				// MAKE INTERACTIVE
-				// Set the overlay and project
-				// this.setState({
-				// 	pause: true,
-				// 	showOverlay: true,
-				// 	overlayProject: mesh.object.userData.project
-				// });
+				//Set the overlay and project
+				this.setState({
+					pause: true,
+					showOverlay: true,
+					overlayProject: mesh.object.userData.project
+				});
 			}
 		}
 	};
